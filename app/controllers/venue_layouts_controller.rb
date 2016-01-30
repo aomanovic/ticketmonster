@@ -14,6 +14,7 @@ class VenueLayoutsController < ApplicationController
 
   # GET /venue_layouts/new
   def new
+    @venues = Venue.all
     @venue_layout = VenueLayout.new
   end
 

@@ -14,6 +14,10 @@ class PriceCategoriesController < ApplicationController
 
   # GET /price_categories/new
   def new
+    @events = Event.all
+    @venues = Venue.all
+    @sections = Section.all
+    @ticket_categories = TicketCategory.all
     @price_category = PriceCategory.new
   end
 

@@ -14,6 +14,7 @@ class SectionRowsController < ApplicationController
 
   # GET /section_rows/new
   def new
+    @sections = Section.all
     @section_row = SectionRow.new
   end
 

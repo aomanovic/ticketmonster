@@ -14,6 +14,9 @@ class ShowsController < ApplicationController
 
   # GET /shows/new
   def new
+    @events = Event.all
+    @venues = Venue.all
+    @venue_layouts = VenueLayout.all
     @show = Show.new
   end
 

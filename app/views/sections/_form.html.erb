@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 <%= form_for(@section) do |f| %>
   <% if @section.errors.any? %>
     <div id="error_explanation">
@@ -11,23 +13,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :capacity %><br>
-    <%= f.number_field :capacity %>
-  </div>
-  <div class="field">
-    <%= f.label :layout_id %><br>
-    <%= f.number_field :layout_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= f.label :name %>
+<%= f.text_field :name, class: 'form-control' %>
+
+<%= f.label :description %>
+<%= f.text_area :description, class: 'form-control' %>
+
+<%= f.label :capacity %>
+<%= f.number_field :capacity, class: 'form-control' %>
+
+<%= f.label :layout_id %>
+<%= f.select :layout_id, options_from_collection_for_select(@layouts, 'id', 'name'), class: 'form-control'%>
+
+<%= f.submit "Create Section", class: "btn btn-primary" %>
 <% end %>
+</div>
+</div>

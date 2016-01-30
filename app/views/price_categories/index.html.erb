@@ -2,34 +2,35 @@
 
 <h1>Listing Price Categories</h1>
 
-<table>
-  <thead>
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
     <tr>
-      <th>Event</th>
-      <th>Venue</th>
-      <th>Section</th>
-      <th>Category</th>
-      <th>Price</th>
-      <th colspan="3"></th>
+      <th class="col-sm-3">Event</th>
+      <th class="col-sm-3">Venue</th>
+      <th class="col-sm-3">Section</th>
+      <th class="col-sm-3">Category</th>
+      <th class="col-sm-3">Price</th>
+      <th class="col-sm-3" colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @price_categories.each do |price_category| %>
-      <tr>
-        <td><%= price_category.event_id %></td>
-        <td><%= price_category.venue_id %></td>
-        <td><%= price_category.section_id %></td>
-        <td><%= price_category.category_id %></td>
-        <td><%= price_category.price %></td>
-        <td><%= link_to 'Show', price_category %></td>
-        <td><%= link_to 'Edit', edit_price_category_path(price_category) %></td>
-        <td><%= link_to 'Destroy', price_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr>
+          <td class="col-sm-3"><%= price_category.event_id %></td>
+          <td class="col-sm-3"><%= price_category.venue_id %></td>
+          <td class="col-sm-3"><%= price_category.section_id %></td>
+          <td class="col-sm-3"><%= price_category.category_id %></td>
+          <td class="col-sm-3"><%= price_category.price %></td>
+          <td class="col-sm-1"><%= link_to 'Show', price_category %></td>
+          <td class="col-sm-1"><%= link_to 'Edit', edit_price_category_path(price_category) %></td>
+          <td class="col-sm-1"><%= link_to 'Destroy', price_category, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br>
-
+  <br>
+</div>
 <%= link_to 'New Price category', new_price_category_path %>

@@ -14,6 +14,7 @@ class SectionsController < ApplicationController
 
   # GET /sections/new
   def new
+    @layouts = VenueLayout.all
     @section = Section.new
   end
 

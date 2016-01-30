@@ -2,26 +2,29 @@
 
 <h1>Listing Ticket Categories</h1>
 
-<table>
-  <thead>
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
     <tr>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th class="col-sm-3">Name</th>
+      <th class="col-sm-3">Description</th>
+      <th class="col-sm-3" colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @ticket_categories.each do |ticket_category| %>
-      <tr>
-        <td><%= ticket_category.description %></td>
-        <td><%= link_to 'Show', ticket_category %></td>
-        <td><%= link_to 'Edit', edit_ticket_category_path(ticket_category) %></td>
-        <td><%= link_to 'Destroy', ticket_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr>
+          <td class="col-sm-3"><%= ticket_category.name %></td>
+          <td class="col-sm-3"><%= ticket_category.description %></td>
+          <td class="col-sm-1"><%= link_to 'Show', ticket_category %></td>
+          <td class="col-sm-1"><%= link_to 'Edit', edit_ticket_category_path(ticket_category) %></td>
+          <td class="col-sm-1"><%= link_to 'Destroy', ticket_category, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br>
-
+  <br>
+</div>
 <%= link_to 'New Ticket category', new_ticket_category_path %>

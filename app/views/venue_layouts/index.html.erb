@@ -4,12 +4,14 @@
 
 <div class="table-responsive">
   <table class="table table-bordered">
-    <thead>
+    <thead class="bg-info">
     <tr>
       <th class="col-sm-3">Venue</th>
       <th class="col-sm-3">Name</th>
       <th class="col-sm-3">Capacity</th>
-      <th class="col-sm-3" colspan="3"></th>
+      <% if administrator? %>
+          <th class="col-sm-3" colspan="3"></th>
+      <% end %>
     </tr>
     </thead>
 
@@ -19,9 +21,11 @@
           <td class="col-sm-3"><%= venue_layout.venue_id %></td>
           <td class="col-sm-3"><%= venue_layout.name %></td>
           <td class="col-sm-3"><%= venue_layout.capacity %></td>
-          <td class="col-sm-1"><%= link_to 'Show', venue_layout %></td>
-          <td class="col-sm-1"><%= link_to 'Edit', edit_venue_layout_path(venue_layout) %></td>
-          <td class="col-sm-1"><%= link_to 'Destroy', venue_layout, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          <% if administrator? %>
+              <td class="col-sm-1"><%= link_to 'Show', venue_layout %></td>
+              <td class="col-sm-1"><%= link_to 'Edit', edit_venue_layout_path(venue_layout) %></td>
+              <td class="col-sm-1"><%= link_to 'Destroy', venue_layout, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          <% end %>
         </tr>
     <% end %>
     </tbody>
@@ -29,4 +33,3 @@
 
   <br>
 </div>
-<%= link_to 'New Venue layout', new_venue_layout_path %>

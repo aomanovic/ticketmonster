@@ -4,9 +4,11 @@
   <h2>
     This is homepage of this small event tickets selling site
   </h2>
-
   <%= link_to "Login!", login_path, class: "btn btn-lg btn-primary" if session[:user_id].nil? %>
-
+  <%= link_to "Register!", signup_path, class: "btn btn-lg btn-primary" if session[:user_id].nil? %>
+  <% if logged_in? %>
+  redirect_to
+  <% end %>
 
 </div>
 

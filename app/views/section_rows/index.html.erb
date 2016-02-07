@@ -4,12 +4,14 @@
 
 <div class="table-responsive">
   <table class="table table-bordered">
-    <thead>
+    <thead class="bg-info">
     <tr>
       <th class="col-sm-3">Name</th>
       <th class="col-sm-3">Capacity</th>
       <th class="col-sm-3">Section</th>
-      <th class="col-sm-3" colspan="3"></th>
+      <% if administrator? %>
+          <th class="col-sm-3" colspan="3"></th>
+      <% end %>
     </tr>
     </thead>
 
@@ -19,9 +21,11 @@
           <td class="col-sm-3"><%= section_row.name %></td>
           <td class="col-sm-3"><%= section_row.capacity %></td>
           <td class="col-sm-3"><%= section_row.section_id %></td>
-          <td class="col-sm-1"><%= link_to 'Show', section_row %></td>
-          <td class="col-sm-1"><%= link_to 'Edit', edit_section_row_path(section_row) %></td>
-          <td class="col-sm-1"><%= link_to 'Destroy', section_row, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          <% if administrator? %>
+              <td class="col-sm-1"><%= link_to 'Show', section_row %></td>
+              <td class="col-sm-1"><%= link_to 'Edit', edit_section_row_path(section_row) %></td>
+              <td class="col-sm-1"><%= link_to 'Destroy', section_row, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          <% end %>
         </tr>
     <% end %>
     </tbody>
@@ -29,4 +33,3 @@
 
   <br>
 </div>
-<%= link_to 'New Section row', new_section_row_path %>

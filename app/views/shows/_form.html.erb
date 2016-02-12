@@ -24,8 +24,8 @@
         <%= f.label :showtime %>
         <%= f.text_field :showtime, class: 'form-control' %>
 
-        <%= f.label :layout_id %>
-        <%= f.select :layout_id, options_from_collection_for_select(@venue_layouts, 'id', 'name'), class: 'form-control' %>
+        <%= f.label :venue_layout_id %>
+        <%= f.select :venue_layout_id, options_from_collection_for_select(@venue_layouts, 'id', 'name'), class: 'form-control' %>
 
 
 

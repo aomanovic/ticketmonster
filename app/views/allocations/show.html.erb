@@ -1,39 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="list-group">
+  <a href="#" class="list-group-item active">Assigned to: <%= @allocation.assigned %></a>
+  <a href="#" class="list-group-item list-group-item-info">User: <%= get_user.name %></a>
+  <a href="#" class="list-group-item list-group-item-info">Show: <%= get_show_name %> @ <%= get_show_venue %> at <%= get_show_time %></a>
+  <a href="#" class="list-group-item list-group-item-info">Row:  <%= @allocation.row_id %></a>
+  <a href="#" class="list-group-item list-group-item-info">Quantity: <%= @allocation.quantity %></a>
+  <a href="#" class="list-group-item list-group-item-info">Seats: <%= @allocation.start_seat %> - <%= @allocation.end_seat %></a>
+  <a href="#" class="list-group-item list-group-item-info">Price: <%= get_price %></a>
+</div>
 
-<p>
-  <strong>Assigned:</strong>
-  <%= @allocation.assigned %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @allocation.user_id %>
-</p>
-
-<p>
-  <strong>Show:</strong>
-  <%= @allocation.show_id %>
-</p>
-
-<p>
-  <strong>Row:</strong>
-  <%= @allocation.row_id %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @allocation.quantity %>
-</p>
-
-<p>
-  <strong>Start seat:</strong>
-  <%= @allocation.start_seat %>
-</p>
-
-<p>
-  <strong>End seat:</strong>
-  <%= @allocation.end_seat %>
-</p>
 
 <%= link_to 'Edit', edit_allocation_path(@allocation) %> |
 <%= link_to 'Back', allocations_path %>

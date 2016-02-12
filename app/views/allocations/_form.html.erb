@@ -1,45 +1,48 @@
-<%= form_for(@allocation) do |f| %>
-  <% if @allocation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@allocation.errors.count, "error") %> prohibited this allocation from being saved:</h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@allocation) do |f| %>
+        <% if @allocation.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@allocation.errors.count, "error") %> prohibited this allocation from being saved:</h2>
 
-      <ul>
-      <% @allocation.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+              <ul>
+                <% @allocation.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
 
-  <div class="field">
-    <%= f.label :assigned %><br>
-    <%= f.text_field :assigned %>
+
+        <%= f.label :assigned %>
+        <%= f.text_field :assigned, class: 'form-control' %>
+
+        <%= f.label :user_id %><br>
+        <%= f.number_field :user_id, :value => current_user.id, class: 'form-control' %>
+
+        <%= f.label :row_id %><br>
+        <%= f.number_field :row_id, class: 'form-control' %>
+
+        <%= f.label :quantity %><br>
+        <%= f.number_field :quantity, class: 'form-control' %>
+
+        <%= f.label :start_seat %><br>
+        <%= f.number_field :start_seat, class: 'form-control' %>
+
+        <%= f.label :end_seat %><br>
+        <%= f.number_field :end_seat, class: 'form-control' %>
+
+        <%= f.label :show %><br>
+        <%= f.select :show_id, options_for_select(@shows.collect { |show|
+          [show.event.name.titleize, show.id] }, 1), {}, {id: 'shows_select'} %>
+
+        <%= f.label :price %><br>
+        <%= f.select :price_category_id, options_for_select(@price_categories.collect { |price_category|
+          [price_category.price.titleize, price_category.id] }, 0), {}, {id: 'price_categories_select'} %>
+
+
+        <%= f.submit "Create Allocation", class: "btn btn-primary" %>
+
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :show_id %><br>
-    <%= f.number_field :show_id %>
-  </div>
-  <div class="field">
-    <%= f.label :row_id %><br>
-    <%= f.number_field :row_id %>
-  </div>
-  <div class="field">
-    <%= f.label :quantity %><br>
-    <%= f.number_field :quantity %>
-  </div>
-  <div class="field">
-    <%= f.label :start_seat %><br>
-    <%= f.number_field :start_seat %>
-  </div>
-  <div class="field">
-    <%= f.label :end_seat %><br>
-    <%= f.number_field :end_seat %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

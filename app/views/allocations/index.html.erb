@@ -2,33 +2,38 @@
 
 <h1>Listing Allocations</h1>
 
-<table>
-  <thead>
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead class="bg-info">
     <tr>
-      <th>Assigned</th>
-      <th>User</th>
-      <th>Show</th>
-      <th>Row</th>
-      <th>Quantity</th>
-      <th>Start seat</th>
-      <th>End seat</th>
-      <th colspan="3"></th>
+      <th class="col-sm-3">Assigned</th>
+      <th class="col-sm-3">User</th>
+      <th class="col-sm-3">Show</th>
+      <th class="col-sm-3">Row</th>
+      <th class="col-sm-3">Quantity</th>
+      <th class="col-sm-3">Start seat</th>
+      <th class="col-sm-3">End seat</th>
+      <% if administrator? %>
+          <th class="col-sm-3" colspan="3"></th>
+      <% end %>
     </tr>
   </thead>
 
   <tbody>
     <% @allocations.each do |allocation| %>
       <tr>
-        <td><%= allocation.assigned %></td>
-        <td><%= allocation.user_id %></td>
-        <td><%= allocation.show_id %></td>
-        <td><%= allocation.row_id %></td>
-        <td><%= allocation.quantity %></td>
-        <td><%= allocation.start_seat %></td>
-        <td><%= allocation.end_seat %></td>
-        <td><%= link_to 'Show', allocation %></td>
-        <td><%= link_to 'Edit', edit_allocation_path(allocation) %></td>
-        <td><%= link_to 'Destroy', allocation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="col-sm-3"><%= allocation.assigned %></td>
+        <td class="col-sm-3"><%= allocation.user.name %></td>
+        <td class="col-sm-3"><%= Event.find_by(id:Show.find_by(id: allocation.show_id).event_id).name %></td>
+        <td class="col-sm-3"><%= allocation.row_id %></td>
+        <td class="col-sm-3"><%= allocation.quantity %></td>
+        <td class="col-sm-3"><%= allocation.start_seat %></td>
+        <td class="col-sm-3"><%= allocation.end_seat %></td>
+        <% if administrator? %>
+            <td class="col-sm-1"><%= link_to 'Show', allocation %></td>
+            <td class="col-sm-1"><%= link_to 'Edit', edit_allocation_path(allocation) %></td>
+            <td class="col-sm-1"><%= link_to 'Destroy', allocation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

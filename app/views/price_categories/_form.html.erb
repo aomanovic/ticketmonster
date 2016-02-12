@@ -24,11 +24,11 @@
         <%= f.label :section_id %>
         <%= f.select :section_id, options_from_collection_for_select(@sections, 'id', 'name'), class: 'form-control' %>
 
-        <%= f.label :category_id %>
-        <%= f.select :category_id, options_from_collection_for_select(@ticket_categories, 'id', 'name'), class: 'form-control' %>
+        <%= f.label :ticket_category_id %>
+        <%= f.select :ticket_category_id, options_from_collection_for_select(@ticket_categories, 'id', 'name'), class: 'form-control' %>
 
         <%= f.label :price %>
-        <%= f.number_field :price, class: 'form-control', step: 'any' %>
+        <%= f.text_field :price, class: 'form-control'%>
 
 
         <%= f.submit "Create Price Category", class: "btn btn-primary" %>

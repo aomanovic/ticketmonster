@@ -73,6 +73,6 @@ class PriceCategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def price_category_params
-      params.require(:price_category).permit(:event_id, :venue_id, :section_id, :category_id, :price)
+      params.require(:price_category).permit(:event_id, :venue_id, :section_id, :ticket_category_id, :price)
     end
 end

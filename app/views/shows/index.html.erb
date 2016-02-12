@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Shows</h1>
-
 <div class="table-responsive">
   <table class="table table-bordered">
     <thead class="bg-info">
@@ -10,6 +9,7 @@
       <th class="col-sm-3">Venue</th>
       <th class="col-sm-3">Showtime</th>
       <th class="col-sm-3">Layout</th>
+      <% if !administrator? %><th class="col-sm-3"></th><% end %>
       <% if administrator? %>
           <th class="col-sm-3" colspan="3"></th>
       <% end %>
@@ -19,10 +19,11 @@
     <tbody>
     <% @shows.each do |show| %>
         <tr>
-          <td class="col-sm-3"><%= show.event_id %></td>
-          <td class="col-sm-3"><%= show.venue_id %></td>
+          <td class="col-sm-3"><%= show.event.name %></td>
+          <td class="col-sm-3"><%= show.venue.name %></td>
           <td class="col-sm-3"><%= show.showtime %></td>
-          <td class="col-sm-3"><%= show.layout_id %></td>
+          <td class="col-sm-3"><%= show.venue_layout.name %></td>
+          <% if !administrator? %><td class="col-sm-3"><%= link_to 'Book', new_allocation_path %></td><% end %>
           <% if administrator? %>
               <td class="col-sm-1"><%= link_to 'Show', show %></td>
               <td class="col-sm-1"><%= link_to 'Edit', edit_show_path(show) %></td>

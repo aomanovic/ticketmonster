@@ -15,7 +15,7 @@ class PriceCategoriesController < ApplicationController
   # GET /price_categories/new
   def new
     @events = Event.all
-    @venues = Venue.all
+    @venue_layouts = VenueLayout.all
     @sections = Section.all
     @ticket_categories = TicketCategory.all
     @price_category = PriceCategory.new
@@ -23,6 +23,10 @@ class PriceCategoriesController < ApplicationController
 
   # GET /price_categories/1/edit
   def edit
+    @events = Event.all
+    @venue_layouts = VenueLayout.all
+    @sections = Section.all
+    @ticket_categories = TicketCategory.all
   end
 
   # POST /price_categories
@@ -32,7 +36,8 @@ class PriceCategoriesController < ApplicationController
 
     respond_to do |format|
       if @price_category.save
-        format.html { redirect_to @price_category, notice: 'Price category was successfully created.' }
+        flash[:success] = "Price category was successfully created."
+        format.html { redirect_to @price_category }
         format.json { render :show, status: :created, location: @price_category }
       else
         format.html { render :new }
@@ -46,7 +51,8 @@ class PriceCategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @price_category.update(price_category_params)
-        format.html { redirect_to @price_category, notice: 'Price category was successfully updated.' }
+        flash[:success] = "Price category was successfully updated."
+        format.html { redirect_to @price_category }
         format.json { render :show, status: :ok, location: @price_category }
       else
         format.html { render :edit }
@@ -60,7 +66,8 @@ class PriceCategoriesController < ApplicationController
   def destroy
     @price_category.destroy
     respond_to do |format|
-      format.html { redirect_to price_categories_url, notice: 'Price category was successfully destroyed.' }
+      flash[:success] = "Price category was successfully destroyed."
+      format.html { redirect_to price_categories_url }
       format.json { head :no_content }
     end
   end
@@ -73,6 +80,6 @@ class PriceCategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def price_category_params
-      params.require(:price_category).permit(:event_id, :venue_id, :section_id, :ticket_category_id, :price)
+      params.require(:price_category).permit(:event_id, :venue_layout_id, :section_id, :ticket_category_id, :price)
     end
 end

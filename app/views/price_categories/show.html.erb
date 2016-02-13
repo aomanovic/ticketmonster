@@ -1,29 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class="list-group">
+  <a href="#" class="list-group-item active">Event: <%= @price_category.event.name %></a>
+  <a href="#" class="list-group-item list-group-item-info">Venue: <%= @price_category.venue_layout.name %></a>
+  <a href="#" class="list-group-item list-group-item-info">Section: <%= @price_category.section.name %></a>
+  <a href="#" class="list-group-item list-group-item-info">Category: <%= @price_category.ticket_category.name %></a>
+  <a href="#" class="list-group-item list-group-item-info">Price: <%= @price_category.price %></a>
+</div>
 
-<p>
-  <strong>Event:</strong>
-  <%= @price_category.event_id %>
-</p>
-
-<p>
-  <strong>Venue:</strong>
-  <%= @price_category.venue_id %>
-</p>
-
-<p>
-  <strong>Section:</strong>
-  <%= @price_category.section_id %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @price_category.ticket_category_id %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @price_category.price %>
-</p>
 
 <%= link_to 'Edit', edit_price_category_path(@price_category) %> |
 <%= link_to 'Back', price_categories_path %>

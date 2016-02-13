@@ -1,1 +1,1 @@
-json.extract! @section, :id, :name, :description, :capacity, :layout_id, :created_at, :updated_at
+json.extract! @section, :id, :name, :description, :capacity, :venue_layout_id, :created_at, :updated_at

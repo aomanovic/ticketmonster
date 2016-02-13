@@ -1,19 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Venue:</strong>
-  <%= @venue_layout.venue_id %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @venue_layout.name %>
-</p>
-
-<p>
-  <strong>Capacity:</strong>
-  <%= @venue_layout.capacity %>
-</p>
+<div class="list-group">
+  <a href="#" class="list-group-item active">Venue: <%= @venue_layout.venue.name %></a>
+  <a href="#" class="list-group-item list-group-item-info">Name: <%= @venue_layout.name %></a>
+  <a href="#" class="list-group-item list-group-item-info">Capacity: <%= @venue_layout.capacity %></a>
+</div>
 
 <%= link_to 'Edit', edit_venue_layout_path(@venue_layout) %> |
 <%= link_to 'Back', venue_layouts_path %>

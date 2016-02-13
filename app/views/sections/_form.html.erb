@@ -22,10 +22,10 @@
 <%= f.label :capacity %>
 <%= f.number_field :capacity, class: 'form-control' %>
 
-<%= f.label :layout_id %>
-<%= f.select :layout_id, options_from_collection_for_select(@layouts, 'id', 'name'), class: 'form-control'%>
+<%= f.label :venue_layout_id %>
+<%= f.select :venue_layout_id, options_from_collection_for_select(@layouts, 'id', 'name'), class: 'form-control'%>
 
-<%= f.submit "Create Section", class: "btn btn-primary" %>
+<%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>
 </div>
 </div>

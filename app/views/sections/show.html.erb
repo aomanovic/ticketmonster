@@ -1,24 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @section.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @section.description %>
-</p>
-
-<p>
-  <strong>Capacity:</strong>
-  <%= @section.capacity %>
-</p>
-
-<p>
-  <strong>Layout:</strong>
-  <%= @section.layout_id %>
-</p>
+<div class="list-group">
+  <a href="#" class="list-group-item active">Name: <%= @section.name %></a>
+  <a href="#" class="list-group-item list-group-item-info">Description: <%= @section.description %></a>
+  <a href="#" class="list-group-item list-group-item-info">Capacity: <%= @section.capacity %></a>
+  <a href="#" class="list-group-item list-group-item-info">Layout: <%= @section.venue_layout.name %></a>
+</div>
 
 <%= link_to 'Edit', edit_section_path(@section) %> |
 <%= link_to 'Back', sections_path %>

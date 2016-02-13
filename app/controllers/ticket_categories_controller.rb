@@ -28,7 +28,8 @@ class TicketCategoriesController < ApplicationController
 
     respond_to do |format|
       if @ticket_category.save
-        format.html { redirect_to @ticket_category, notice: 'Ticket category was successfully created.' }
+        flash[:success] = "Ticket category was successfully created."
+        format.html { redirect_to @ticket_category }
         format.json { render :show, status: :created, location: @ticket_category }
       else
         format.html { render :new }
@@ -42,7 +43,8 @@ class TicketCategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @ticket_category.update(ticket_category_params)
-        format.html { redirect_to @ticket_category, notice: 'Ticket category was successfully updated.' }
+        flash[:success] = "Ticket category was successfully updated."
+        format.html { redirect_to @ticket_category }
         format.json { render :show, status: :ok, location: @ticket_category }
       else
         format.html { render :edit }
@@ -56,7 +58,8 @@ class TicketCategoriesController < ApplicationController
   def destroy
     @ticket_category.destroy
     respond_to do |format|
-      format.html { redirect_to ticket_categories_url, notice: 'Ticket category was successfully destroyed.' }
+      flash[:success] = "Ticket category was successfully destroyed."
+      format.html { redirect_to ticket_categories_url }
       format.json { head :no_content }
     end
   end

@@ -18,8 +18,8 @@
         <%= f.label :event_id %>
         <%= f.select :event_id, options_from_collection_for_select(@events, 'id', 'name'), class: 'form-control' %>
 
-        <%= f.label :venue_id %>
-        <%= f.select :venue_id, options_from_collection_for_select(@venues, 'id', 'name'), class: 'form-control' %>
+        <%= f.label :venue_layout_id %>
+        <%= f.select :venue_layout_id, options_from_collection_for_select(@venue_layouts, 'id', 'name'), class: 'form-control' %>
 
         <%= f.label :section_id %>
         <%= f.select :section_id, options_from_collection_for_select(@sections, 'id', 'name'), class: 'form-control' %>
@@ -31,7 +31,7 @@
         <%= f.text_field :price, class: 'form-control'%>
 
 
-        <%= f.submit "Create Price Category", class: "btn btn-primary" %>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

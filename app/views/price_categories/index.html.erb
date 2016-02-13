@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Price Categories</h1>
 
 <div class="table-responsive">
@@ -7,7 +5,7 @@
     <thead class="bg-info">
     <tr>
       <th class="col-sm-3">Event</th>
-      <th class="col-sm-3">Venue</th>
+      <th class="col-sm-3">Venue Layout</th>
       <th class="col-sm-3">Section</th>
       <th class="col-sm-3">Category</th>
       <th class="col-sm-3">Price</th>
@@ -21,7 +19,7 @@
     <% @price_categories.each do |price_category| %>
         <tr>
           <td class="col-sm-3"><%= price_category.event.name %></td>
-          <td class="col-sm-3"><%= price_category.venue.name %></td>
+          <td class="col-sm-3"><%= price_category.venue_layout.name %></td>
           <td class="col-sm-3"><%= price_category.section.name %></td>
           <td class="col-sm-3"><%= price_category.ticket_category.name %></td>
           <td class="col-sm-3"><%= price_category.price %></td>

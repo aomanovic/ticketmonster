@@ -20,6 +20,7 @@ class VenueLayoutsController < ApplicationController
 
   # GET /venue_layouts/1/edit
   def edit
+    @venues = Venue.all
   end
 
   # POST /venue_layouts
@@ -29,7 +30,8 @@ class VenueLayoutsController < ApplicationController
 
     respond_to do |format|
       if @venue_layout.save
-        format.html { redirect_to @venue_layout, notice: 'Venue layout was successfully created.' }
+        flash[:success] = "Venue layout was successfully created."
+        format.html { redirect_to @venue_layout }
         format.json { render :show, status: :created, location: @venue_layout }
       else
         format.html { render :new }
@@ -43,7 +45,8 @@ class VenueLayoutsController < ApplicationController
   def update
     respond_to do |format|
       if @venue_layout.update(venue_layout_params)
-        format.html { redirect_to @venue_layout, notice: 'Venue layout was successfully updated.' }
+        flash[:success] = "Venue layout was successfully updated."
+        format.html { redirect_to @venue_layout }
         format.json { render :show, status: :ok, location: @venue_layout }
       else
         format.html { render :edit }
@@ -57,7 +60,8 @@ class VenueLayoutsController < ApplicationController
   def destroy
     @venue_layout.destroy
     respond_to do |format|
-      format.html { redirect_to venue_layouts_url, notice: 'Venue layout was successfully destroyed.' }
+      flash[:success] = "Venue layout was successfully destroyed."
+      format.html { redirect_to venue_layouts_url }
       format.json { head :no_content }
     end
   end

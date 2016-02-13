@@ -20,6 +20,7 @@ class SectionRowsController < ApplicationController
 
   # GET /section_rows/1/edit
   def edit
+    @sections = Section.all
   end
 
   # POST /section_rows
@@ -29,7 +30,8 @@ class SectionRowsController < ApplicationController
 
     respond_to do |format|
       if @section_row.save
-        format.html { redirect_to @section_row, notice: 'Section row was successfully created.' }
+        flash[:success] = "Section row was successfully created."
+        format.html { redirect_to @section_row }
         format.json { render :show, status: :created, location: @section_row }
       else
         format.html { render :new }
@@ -43,7 +45,8 @@ class SectionRowsController < ApplicationController
   def update
     respond_to do |format|
       if @section_row.update(section_row_params)
-        format.html { redirect_to @section_row, notice: 'Section row was successfully updated.' }
+        flash[:success] = "Section row was successfully updated."
+        format.html { redirect_to @section_row }
         format.json { render :show, status: :ok, location: @section_row }
       else
         format.html { render :edit }
@@ -57,7 +60,8 @@ class SectionRowsController < ApplicationController
   def destroy
     @section_row.destroy
     respond_to do |format|
-      format.html { redirect_to section_rows_url, notice: 'Section row was successfully destroyed.' }
+      flash[:success] = "Section row was successfully destroyed."
+      format.html { redirect_to section_rows_url }
       format.json { head :no_content }
     end
   end

@@ -1,3 +1,19 @@
+GIT
+  remote: git://github.com/derekprior/momentjs-rails.git
+  revision: eda1b74512db5844673bd4d37a6e4fe6127053b3
+  specs:
+    momentjs-rails (2.11.0)
+      railties (>= 3.1)
+
+GIT
+  remote: git://github.com/zpaulovics/datetimepicker-rails.git
+  revision: 36d21cec5da7f5b214925804f60e63c61c747023
+  branch: master
+  submodules: true
+  specs:
+    datetimepicker-rails (4.7.16)
+      momentjs-rails (>= 2.9.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -45,6 +61,8 @@ GEM
       bcrypt (>= 3.1.3)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-datepicker-rails (1.5.0)
+      railties (>= 3.0)
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
@@ -131,6 +149,9 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    simple_form (3.2.1)
+      actionpack (> 4, < 5.1)
+      activemodel (> 4, < 5.1)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -159,18 +180,22 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby (~> 3.1.5)
+  bootstrap-datepicker-rails
   bootstrap-sass (~> 3.3.4.1)
   byebug
   coffee-rails (~> 4.1.0)
+  datetimepicker-rails!
   jbuilder (~> 2.0)
   jquery-rails
   jwt
+  momentjs-rails (~> 2.9)!
   pg
   puma (~> 2.11.3)
   rails (= 4.2.0)
   rails_12factor
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  simple_form
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (~> 2.0)

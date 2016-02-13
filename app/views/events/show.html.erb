@@ -1,34 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @event.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @event.end_date %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @event.category_id %>
-</p>
-
-<p>
-  <strong>Major:</strong>
-  <%= @event.major %>
-</p>
+<div class="list-group">
+  <a href="#" class="list-group-item active">Name: <%= @event.name %></a>
+  <a href="#" class="list-group-item list-group-item-info">Description: <%= @event.description %></a>
+  <a href="#" class="list-group-item list-group-item-info">Start date: <%= @event.start_date %></a>
+  <a href="#" class="list-group-item list-group-item-info">End date: <%=  @event.end_date %></a>
+  <a href="#" class="list-group-item list-group-item-info">Category: <%= @event.event_category.name %></a>
+</div>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

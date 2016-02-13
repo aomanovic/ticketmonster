@@ -20,8 +20,7 @@
         <%= f.text_area :description, class: 'form-control' %>
 
         <%= f.label :event_category_id %>
-        <%= f.select :event_category_id, options_from_collection_for_select(@event_categories, 'id', 'name'), class: 'form-control' %>
-
+        <%= f.select( :event_category_id, options_from_collection_for_select(@event_categories, 'id', 'name', :selected => f.object.event_category_id), class: 'form-control') %>
 
         <%= f.input :start_date, :as => :datetime_picker, class: 'form-control' %>
 

@@ -25,6 +25,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @event_categories = EventCategory.all
   end
 
   # POST /events
@@ -47,6 +48,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    @event_categories = EventCategory.all
     respond_to do |format|
       if @event.update(event_params)
         flash[:success] = "Event was successfully updated."

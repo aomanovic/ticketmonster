@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.10'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -42,12 +42,12 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'bcrypt-ruby', '~> 3.1.5'
+gem 'bcrypt-ruby', '~> 3.1.5', platforms: :ruby
 
 gem 'bootstrap-sass', '~> 3.3.4.1'
 
 gem 'rails_12factor', group: :production
-gem 'puma', '~> 2.11.3'
+gem 'puma', '~> 2.16.0'
 
 #Pomoc ima na http://stackoverflow.com/questions/24183377/puma-installation-error-on-windows
 #Mora se skinuti openssl i ekstraktovati u folder C:/openssl i onda pokrenuti gem install puma -- --with-opt-dir=C:/openssl

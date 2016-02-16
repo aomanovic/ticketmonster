@@ -26,7 +26,7 @@ class AllocationsController < ApplicationController
     @shows = Show.all
     @price_categories = PriceCategory.where("event_id = ?", Show.first.event.id)
     @price_category = PriceCategory.find_by(id: params[:price_category_id])
-    @allocation = Allocation.new
+    @allocation = Allocation.new(:show_id => params[:show_id])
   end
 
   # GET /allocations/1/edit

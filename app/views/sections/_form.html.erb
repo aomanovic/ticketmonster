@@ -23,7 +23,7 @@
 <%= f.number_field :capacity, class: 'form-control' %>
 
 <%= f.label :venue_layout_id %>
-<%= f.select :venue_layout_id, options_from_collection_for_select(@layouts, 'id', 'name'), class: 'form-control'%>
+<%= f.select :venue_layout_id, options_from_collection_for_select(@layouts, 'id', 'name', :selected => f.object.venue_layout_id), class: 'form-control'%>
 
 <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>

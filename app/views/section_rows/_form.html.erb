@@ -22,7 +22,7 @@
         <%= f.number_field :capacity, class: 'form-control' %>
 
         <%= f.label :section_id %>
-        <%= f.select :section_id, options_from_collection_for_select(@sections, 'id', 'name'), class: 'form-control' %>
+        <%= f.select :section_id, options_from_collection_for_select(@sections, 'id', 'name', :selected => f.object.section_id), class: 'form-control' %>
 
         <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>

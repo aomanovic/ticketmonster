@@ -14,7 +14,7 @@
   <% end %>
 
     <%= f.label :venue_id %>
-    <%= f.select :venue_id, options_from_collection_for_select(@venues, 'id', 'name'), class: 'form-control'%>
+    <%= f.select :venue_id, options_from_collection_for_select(@venues, 'id', 'name', :selected => f.object.venue_id), class: 'form-control'%>
 
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>

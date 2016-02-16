@@ -15,21 +15,26 @@
         <a href="#">Bon Jovi World Tour</a>
       </h2>
       <!--<p class="lead">-->
-        <!--by <a href="index.php">Start Bootstrap</a>-->
+      <!--by <a href="index.php">Start Bootstrap</a>-->
       <!--</p>-->
       <!--<p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>-->
       <hr>
-      <%= image_tag 'prva.jpg', class:'img-responsive'%>
+      <%= image_tag 'prva.jpg', class: 'img-responsive' %>
       <hr>
       <p>
-        Canadian singer-songwriter Bon Jovi is set to impress with a live performance of his twelfth studio album, Wallflower, which covers pop and rock classics from artists like 10cc, Bryan Adams and The Eagles.
+        Canadian singer-songwriter Bon Jovi is set to impress with a live performance of his twelfth studio album,
+        Wallflower, which covers pop and rock classics from artists like 10cc, Bryan Adams and The Eagles.
         <br>
         <br> Date: 10-12 Feb
         <br> Venue: Skenderija Concert Hall
         <br> Website: www.skenderija.ba
       </p>
-      <a class="btn btn-primary" href="#">Book tickets <span class="glyphicon glyphicon-chevron-right"></span></a>
 
+
+        <div class="btn btn-primary">
+      <%= link_to "Book tickets!", new_allocation_path %>
+      <span class="glyphicon glyphicon-chevron-right"></span>
+        </div>
       <hr>
 
       <!-- Second Blog Post -->
@@ -37,22 +42,26 @@
         <a href="#">Valentine’s Day 2016: A bandstand music series</a>
       </h2>
       <!--<p class="lead">-->
-        <!--by <a href="index.php">Start Bootstrap</a>-->
+      <!--by <a href="index.php">Start Bootstrap</a>-->
       <!--</p>-->
       <!--<p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>-->
       <hr>
-      <%= image_tag 'druga.jpg', class:'img-responsive'%>
+      <%= image_tag 'druga.jpg', class: 'img-responsive' %>
       <hr>
       <p>
-        What better way to celebrate Valentine’s Day than with good music, greenery and a moonlit sky? The Bandstand at the Skenderija will host a series of fantastic live acts, so grab your sweetheart for an unforgettable nights of soul-soothing indie pop.
+        What better way to celebrate Valentine’s Day than with good music, greenery and a moonlit sky? The Bandstand at
+        the Skenderija will host a series of fantastic live acts, so grab your sweetheart for an unforgettable nights of
+        soul-soothing indie pop.
         <br>
         <br> Date: 13-14 Feb
         <br> Venue: Zetra Olympic Hall
         <br> Website: www.zetra.ba
 
       </p>
-      <a class="btn btn-primary" href="#">Book tickets <span class="glyphicon glyphicon-chevron-right"></span></a>
-
+      <div class="btn btn-primary">
+        <%= link_to "Book tickets!", new_allocation_path %>
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </div>
       <hr>
 
       <!-- Third Blog Post -->
@@ -60,11 +69,11 @@
         <a href="#">EXIT Festival, Petrovaradin Fortress, Novi Sad!</a>
       </h2>
       <!--<p class="lead">-->
-        <!--by <a href="index.php">Start Bootstrap</a>-->
+      <!--by <a href="index.php">Start Bootstrap</a>-->
       <!--</p>-->
       <!--<p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>-->
       <hr>
-      <%= image_tag 'treca.jpg', class:'img-responsive'%>
+      <%= image_tag 'treca.jpg', class: 'img-responsive' %>
       <hr>
       <p>
         Exit Magic Adventure 2016 presents two festivals in two countries at two spectacular locations!
@@ -75,18 +84,20 @@
         <br> Website: www.exitfest.org
 
       </p>
-      <a class="btn btn-primary" href="#">Book tickets <span class="glyphicon glyphicon-chevron-right"></span></a>
-
+      <div class="btn btn-primary">
+        <%= link_to "Book tickets!", new_allocation_path(:show_id => 8) %>
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </div>
       <hr>
 
       <!--&lt;!&ndash; Pager &ndash;&gt;-->
       <!--<ul class="pager">-->
-        <!--<li class="previous">-->
-          <!--<a href="#">&larr; Older</a>-->
-        <!--</li>-->
-        <!--<li class="next">-->
-          <!--<a href="#">Newer &rarr;</a>-->
-        <!--</li>-->
+      <!--<li class="previous">-->
+      <!--<a href="#">&larr; Older</a>-->
+      <!--</li>-->
+      <!--<li class="next">-->
+      <!--<a href="#">Newer &rarr;</a>-->
+      <!--</li>-->
       <!--</ul>-->
 
     </div>
@@ -96,11 +107,13 @@
 
       <!-- Blog Search Well -->
       <div class="well">
-        <h4>Event Search</h4>
+        <h4>Shows Search</h4>
         <div class="input-group">
-          <%= form_tag(events_path, :method => "get", id: "search-form") do %>
-              <%= text_field_tag :search, params[:search], placeholder: "Event Name", class:'form-control' %>
-              <%= submit_tag "Search", class:'btn btn-default' %>
+          <%= simple_form_for :search, {url: shows_path, method: :get} do |f| %>
+              <%= f.input :search, placeholder: "Event Name", label: false, id: 'eventSearch', class: 'form-control' %>
+              <%= f.input :start, :as => :datetime_picker, placeholder: "From Date", id: 'searchStart', label: false, class: 'form-control' %>
+              <%= f.input :end, :as => :datetime_picker, placeholder: "To Date", id: 'searchEnd', label: false, class: 'form-control' %>
+              <%= f.button :submit, "Search" %>
           <% end %>
 
         </div>
@@ -112,43 +125,42 @@
 
       <!--&lt;!&ndash; Blog Categories Well &ndash;&gt;-->
       <!--<div class="well">-->
-        <!--<h4>Blog Categories</h4>-->
-        <!--<div class="row">-->
-          <!--<div class="col-lg-6">-->
-            <!--<ul class="list-unstyled">-->
-              <!--<li><a href="#">Category Name</a>-->
-              <!--</li>-->
-              <!--<li><a href="#">Category Name</a>-->
-              <!--</li>-->
-              <!--<li><a href="#">Category Name</a>-->
-              <!--</li>-->
-              <!--<li><a href="#">Category Name</a>-->
-              <!--</li>-->
-            <!--</ul>-->
-          <!--</div>-->
-          <!--&lt;!&ndash; /.col-lg-6 &ndash;&gt;-->
-          <!--<div class="col-lg-6">-->
-            <!--<ul class="list-unstyled">-->
-              <!--<li><a href="#">Category Name</a>-->
-              <!--</li>-->
-              <!--<li><a href="#">Category Name</a>-->
-              <!--</li>-->
-              <!--<li><a href="#">Category Name</a>-->
-              <!--</li>-->
-              <!--<li><a href="#">Category Name</a>-->
-              <!--</li>-->
-            <!--</ul>-->
-          <!--</div>-->
-          <!--&lt;!&ndash; /.col-lg-6 &ndash;&gt;-->
-        <!--</div>-->
-        <!--&lt;!&ndash; /.row &ndash;&gt;-->
+      <!--<h4>Blog Categories</h4>-->
+      <!--<div class="row">-->
+      <!--<div class="col-lg-6">-->
+      <!--<ul class="list-unstyled">-->
+      <!--<li><a href="#">Category Name</a>-->
+      <!--</li>-->
+      <!--<li><a href="#">Category Name</a>-->
+      <!--</li>-->
+      <!--<li><a href="#">Category Name</a>-->
+      <!--</li>-->
+      <!--<li><a href="#">Category Name</a>-->
+      <!--</li>-->
+      <!--</ul>-->
       <!--</div>-->
-
+      <!--&lt;!&ndash; /.col-lg-6 &ndash;&gt;-->
+      <!--<div class="col-lg-6">-->
+      <!--<ul class="list-unstyled">-->
+      <!--<li><a href="#">Category Name</a>-->
+      <!--</li>-->
+      <!--<li><a href="#">Category Name</a>-->
+      <!--</li>-->
+      <!--<li><a href="#">Category Name</a>-->
+      <!--</li>-->
+      <!--<li><a href="#">Category Name</a>-->
+      <!--</li>-->
+      <!--</ul>-->
+      <!--</div>-->
+      <!--&lt;!&ndash; /.col-lg-6 &ndash;&gt;-->
+      <!--</div>-->
+      <!--&lt;!&ndash; /.row &ndash;&gt;-->
+      <!--</div>-->
 
 
       <!-- Side Widget Well -->
       <div class="well">
-        <%= image_tag 'monster.png', class:'monster-img'%>
+        <%= image_tag 'monster.png', class: 'monster-img' %>
       </div>
 
     </div>

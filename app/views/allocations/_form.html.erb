@@ -36,7 +36,7 @@
         <%= f.select :show_id, options_for_select(@shows.collect { |show|
           [show.event.name.titleize, show.id] }, 1), {}, {id: 'shows_select'} %>
 
-        <%= f.label :price %><br>
+        <%= f.label :price_category_id %><br>
         <%= f.select :price_category_id, options_for_select(@price_categories.collect { |price_category|
           [price_category.price.titleize, price_category.id] }, 0), {}, {id: 'price_categories_select'} %>
 

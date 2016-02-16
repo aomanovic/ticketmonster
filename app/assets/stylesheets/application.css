@@ -53,3 +53,20 @@ select {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
+.form-group.string.required.search_search {
+    width: 300px;
+}
+
+input#search_start {
+    margin-top: 15px;
+    width: 300px;
+}
+
+input#search_end {
+    width: 300px;
+}
+
+a:visited {
+    color: white;
+}

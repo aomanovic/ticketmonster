@@ -4,8 +4,17 @@ class ShowsController < ApplicationController
   # GET /shows
   # GET /shows.json
   def index
-    @shows = Show.all
+    params[:search] ||= {}
+    if params[:search][:search]
+      @events = Event.search(params[:search][:search])
+      @shows = Show.where(event_id: @events.map(&:id))
+    else
+      @shows ||= Show.all
+    end
+    @shows = @shows.where('showtime between ? and ?', Date.strptime(params[:search][:start], "%d/%m/%Y"), Date.strptime(params[:search][:end], "%d/%m/%Y")) if params[:search][:start] and params[:search][:end]
+
   end
+
 
   # GET /shows/1
   # GET /shows/1.json

@@ -34,7 +34,7 @@ module SessionsHelper
 
   def administrator?
     user = User.find_by(username: "admin")
-    current_user.eql?(user)
+    !current_user.nil? and current_user == user
   end
 
   # Forgets a persistent session.

@@ -56,14 +56,6 @@ ActiveRecord::Schema.define(version: 20160216201127) do
     t.string   "price"
   end
 
-  create_table "searches", force: :cascade do |t|
-    t.integer  "event_id"
-    t.integer  "venue_layout_id"
-    t.datetime "showtime"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
   create_table "section_rows", force: :cascade do |t|
     t.string   "name"
     t.integer  "capacity"

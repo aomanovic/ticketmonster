@@ -1,13 +1,8 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <% if logged_in? %>
+<% if logged_in? %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
         <%= link_to "Ticket monster", main_path, id: "logo1" %>
-    <% else %>
-        <%= link_to "Ticket monster", root_path, id: "logo2" %>
-    <% end %>
-    <nav>
-      <% if logged_in? %>
-
+        <nav>
           <ul class="nav navbar-nav">
             <% if !administrator? %>
                 <li><%= link_to "My Tickets", allocations_path %></li>
@@ -66,20 +61,12 @@
                 </li>
             <% end %>
           </ul>
-      <% end %>
 
-      <ul class="nav navbar-nav navbar-right">
-        <% if logged_in? %>
+          <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home", main_path %></li>
             <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-
-        <% else %>
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Help", help_path %></li>
-            <li><%= link_to "Log in", login_path %></li>
-            <li><%= link_to "Sign Up", signup_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
-</header>
+          </ul>
+        </nav>
+      </div>
+    </header>
+<% end %>

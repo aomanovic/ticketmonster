@@ -116,13 +116,37 @@
         <h4>Shows Search</h4>
         <div class="input-group">
           <%= simple_form_for :search, {url: shows_path, method: :get} do |f| %>
-              <%= f.input :search, placeholder: "Event Name", label: false, id: 'eventSearch', class: 'form-control' %>
-              <%= f.input :start, :as => :datetime_picker, placeholder: "From Date", id: 'searchStart', label: false, class: 'form-control' %>
-              <%= f.input :end, :as => :datetime_picker, placeholder: "To Date", id: 'searchEnd', label: false, class: 'form-control' %>
+              <%= f.input :search, placeholder: "Event Name", label: false, id: 'eventSearch', class: 'form-control'%>
+              <label for="start" class="sr-only">Birth Date</label>
+              <input type="text" class="datetimepicker_from form-control" id="start" placeholder="From Date" name="start">
+
+              <label for="end" class="sr-only">Birth Date</label>
+              <input type="text" class="datetimepicker_from form-control" id="end" placeholder="To Date" name="end">
               <%= f.button :submit, "Search" %>
           <% end %>
 
         </div>
+
+        <!--<div class="container">-->
+
+          <!--<%= form_tag (shows_path()) do %>-->
+
+              <!--<label for="name" class="sr-only">Event Name</label>-->
+              <!--<input type="text" class="form-control" id="eventSearch" placeholder="Event Name" name="search">-->
+
+              <!--<label for="start" class="sr-only">Birth Date</label>-->
+              <!--<input type="text" class="datetimepicker_from form-control" id="start" placeholder="From Date" name="start">-->
+
+              <!--<label for="end" class="sr-only">Birth Date</label>-->
+              <!--<input type="text" class="datetimepicker_from form-control" id="end" placeholder="To Date" name="end">-->
+              <!---->
+              <!--<button type="submit" class="btn btn-primary">Sign up</button>-->
+              <!--<button type="reset" class="btn btn-primary">Reset</button>-->
+
+          <!--<% end %>-->
+        <!--</div>-->
+
+
 
 
         <!-- /.input-group -->

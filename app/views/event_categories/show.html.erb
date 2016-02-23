@@ -3,5 +3,7 @@
   <a href="#" class="list-group-item list-group-item-info">Description: <%= @event_category.description %></a>
 </div>
 
-<%= link_to 'Edit', edit_event_category_path(@event_category) %> |
-<%= link_to 'Back', event_categories_path %>
+
+
+<%= link_to 'Edit', edit_event_category_path(@event_category), class:'btn btn-primary' %>
+<%= link_to 'Back', event_categories_path,class:'btn btn-primary' %>

@@ -1,33 +1,20 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= simple_form_for(@event) do |f| %>
-        <% if @event.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<div class="container">
+    <%= simple_form_for(@event, :html => {:class => 'form-signin'}) do |f| %>
+      <h2 class="form-signin-heading">Event</h2>
 
-              <ul>
-                <% @event.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-        <% end %>
+        <%= f.text_field :name, class: 'form-control',placeholder: 'Name', :required => true, :autofocus => true %>
 
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control' %>
+        <%= f.text_area :description, class: 'form-control',placeholder: 'Description' %>
 
-        <%= f.label :description %>
-        <%= f.text_area :description, class: 'form-control' %>
+        <%= f.select( :event_category_id, options_from_collection_for_select(@event_categories, 'id', 'name', :selected => f.object.event_category_id), placeholder: 'Event Category', class: 'form-control', :required => true) %>
 
-        <%= f.label :event_category_id %>
-        <%= f.select( :event_category_id, options_from_collection_for_select(@event_categories, 'id', 'name', :selected => f.object.event_category_id), class: 'form-control') %>
+        <%= f.text_field :start_date, placeholder:'Start Date', class: "datetimepicker_to form-control", :required => true %>
+        <%= f.text_field :end_date, placeholder:'End Date', class: "datetimepicker_to form-control",:required => true %>
 
-        <%= f.input :start_date, :as => :datetime_picker, class: 'form-control' %>
 
-        <%= f.input :end_date, :as => :datetime_picker, class: 'form-control' %>
-
-        <%= f.submit "Submit", class: "btn btn-primary" %>
-
+      <button type="submit" class="btn btn-primary ">Submit</button>
+      <button type="reset" class="btn btn-primary">Reset</button>
+      <%= link_to "Back", events_path %>
     <% end %>
   </div>
 </div>

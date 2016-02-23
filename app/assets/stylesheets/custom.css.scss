@@ -183,7 +183,6 @@ input {
 }
 
 .checkbox {
-  margin-top: -10px;
   margin-bottom: 10px;
   span {
     margin-left: 20px;
@@ -194,4 +193,55 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  padding-top: 60px;
+  background-color: #e8e8e8;
+}
+
+.form-control {
+  margin-bottom: 5px;
+}
+
+.center-top {
+  margin-top: 5px;
+}
+
+.container.headerContainer {
+  width: 100%;
+}
+
+#loginmessage {
+  width: 300px;
+}
+
+.signuplink a:visited {
+  color: darkblue;
+}
+
+.form-signin-heading {
+  font-size: 30px;
+  color: black;
+  text-align: left;
 }

@@ -1,34 +1,21 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= simple_form_for(@show) do |f| %>
-        <% if @show.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@show.errors.count, "error") %> prohibited this show from being saved:</h2>
+<div class="container">
+    <%= simple_form_for(@show, :html => {:class => 'form-signin'}) do |f| %>
+      <h2 class="form-signin-heading">Show</h2>
 
-              <ul>
-                <% @show.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-        <% end %>
+        <%= f.select :event_id, options_from_collection_for_select(@events, 'id', 'name', :selected => f.object.event_id),placeholder:'Event', class: 'form-control' %>
+
+        <%= f.select :venue_id, options_from_collection_for_select(@venues, 'id', 'name', :selected => f.object.venue_id),placeholder:'Venue', class: 'form-control' %>
+
+        <%= f.text_field :showtime, placeholder:'Show time', class: "datetimepicker_to form-control", :required => true %>
+
+        <%= f.select :venue_layout_id, options_from_collection_for_select(@venue_layouts, 'id', 'name', :selected => f.object.venue_layout_id),placeholder: 'Venue Layout', class: 'form-control' %>
 
 
 
-        <%= f.label :event_id %>
-        <%= f.select :event_id, options_from_collection_for_select(@events, 'id', 'name', :selected => f.object.event_id), class: 'form-control' %>
+      <button type="submit" class="btn btn-primary ">Submit</button>
+      <button type="reset" class="btn btn-primary">Reset</button>
 
-        <%= f.label :venue_id %>
-        <%= f.select :venue_id, options_from_collection_for_select(@venues, 'id', 'name', :selected => f.object.venue_id), class: 'form-control' %>
-
-        <%= f.input :showtime, :as => :datetime_picker, class: 'form-control' %>
-
-        <%= f.label :venue_layout_id %>
-        <%= f.select :venue_layout_id, options_from_collection_for_select(@venue_layouts, 'id', 'name', :selected => f.object.venue_layout_id), class: 'form-control' %>
-
-
-
-        <%= f.submit "Submit", class: "btn btn-primary" %>
+      <%= link_to "Back", shows_path %>
     <% end %>
   </div>
 </div>

@@ -54,6 +54,22 @@ gem 'puma', '~> 2.16.0'
 
 gem 'jwt'
 gem 'simple_form'
-gem 'bootstrap-datepicker-rails'
-gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
-gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+
+# Bootstrap
+
+gem 'coffee-script-source', '1.10.0'
+
+
+# Use jquery as the JavaScript library
+gem 'jquery-ui-rails'
+
+
+
+gem 'thin'
+gem 'rails_serve_static_assets'
+
+group :development do
+  gem 'better_errors', '1.1.0'
+  gem 'binding_of_caller'
+  gem 'awesome_print'
+end

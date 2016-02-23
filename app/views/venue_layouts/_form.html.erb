@@ -1,28 +1,18 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-<%= form_for(@venue_layout) do |f| %>
-  <% if @venue_layout.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@venue_layout.errors.count, "error") %> prohibited this venue_layout from being saved:</h2>
+<div class="container">
+  <%= form_for(@venue_layout, :html => {:class => 'form-signin'}) do |f| %>
+      <h2 class="form-signin-heading">Venue Layout</h2>
 
-      <ul>
-      <% @venue_layout.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+      <%= f.select :venue_id, options_from_collection_for_select(@venues, 'id', 'name', :selected => f.object.venue_id), placeholder: 'Venue', class: 'form-control' %>
+
+
+      <%= f.text_field :name, class: 'form-control', placeholder: 'Name', :required => true, :autofocus => true %>
+
+      <%= f.number_field :capacity, class: 'form-control', placeholder: 'Capacity', :required => true %>
+
+      <button type="submit" class="btn btn-primary ">Submit</button>
+      <button type="reset" class="btn btn-primary">Reset</button>
+
+      <%= link_to "Back", venue_layouts_path %>
   <% end %>
 
-    <%= f.label :venue_id %>
-    <%= f.select :venue_id, options_from_collection_for_select(@venues, 'id', 'name', :selected => f.object.venue_id), class: 'form-control'%>
-
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
-
-    <%= f.label :capacity %>
-    <%= f.number_field :capacity, class: 'form-control' %>
-
-    <%= f.submit "Submit", class: "btn btn-primary" %>
-<% end %>
-</div>
 </div>

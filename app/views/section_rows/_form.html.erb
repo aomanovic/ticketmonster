@@ -1,30 +1,18 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@section_row) do |f| %>
-        <% if @section_row.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@section_row.errors.count, "error") %> prohibited this section_row from being
-                saved:</h2>
+<div class="container">
+  <%= form_for(@section_row, :html => {:class => 'form-signin'}) do |f| %>
+      <h2 class="form-signin-heading">Section Row</h2>
 
-              <ul>
-                <% @section_row.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-        <% end %>
+      <%= f.text_field :name, class: 'form-control', placeholder: 'Name', :required => true, :autofocus => true %>
+
+      <%= f.number_field :capacity, class: 'form-control', placeholder: 'Capacity', :required => true %>
 
 
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control' %>
+      <%= f.select :section_id, options_from_collection_for_select(@sections, 'id', 'name', :selected => f.object.section_id), placeholder: 'Section', class: 'form-control' %>
 
-        <%= f.label :capacity %>
-        <%= f.number_field :capacity, class: 'form-control' %>
+      <button type="submit" class="btn btn-primary ">Submit</button>
+      <button type="reset" class="btn btn-primary">Reset</button>
 
-        <%= f.label :section_id %>
-        <%= f.select :section_id, options_from_collection_for_select(@sections, 'id', 'name', :selected => f.object.section_id), class: 'form-control' %>
+      <%= link_to "Back", section_rows_path %>
+  <% end %>
 
-        <%= f.submit "Submit", class: "btn btn-primary" %>
-    <% end %>
-  </div>
 </div>

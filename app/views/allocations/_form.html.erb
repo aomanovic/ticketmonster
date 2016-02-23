@@ -1,47 +1,33 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@allocation) do |f| %>
-        <% if @allocation.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@allocation.errors.count, "error") %> prohibited this allocation from being saved:</h2>
+<div class="container">
+  <%= form_for(@allocation, :html => {:class => 'form-signin'}) do |f| %>
+      <h2 class="form-signin-heading">Tickets Purchase</h2>
 
-              <ul>
-                <% @allocation.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-        <% end %>
+        <%= f.text_field :assigned, class: 'form-control', placeholder:'Tickets owner', :required => true %>
+
+        <%= f.number_field :user_id, :value => current_user.id, title:'User id',class: 'hidden form-control', placeholder:'User id' %>
 
 
-        <%= f.label :assigned %>
-        <%= f.text_field :assigned, class: 'form-control' %>
+        <%= f.number_field :row_id, class: 'form-control', placeholder:'Row id' %>
 
-        <%= f.label :user_id %><br>
-        <%= f.number_field :user_id, :value => current_user.id, class: 'form-control' %>
+        <%= f.number_field :quantity, class: 'form-control', placeholder:'Quantity' %>
 
-        <%= f.label :row_id %><br>
-        <%= f.number_field :row_id, class: 'form-control' %>
+        <%= f.number_field :start_seat, class: 'form-control', placeholder:'Start seat' %>
 
-        <%= f.label :quantity %><br>
-        <%= f.number_field :quantity, class: 'form-control' %>
+        <%= f.number_field :end_seat, class: 'form-control', placeholder:'End seat' %>
 
-        <%= f.label :start_seat %><br>
-        <%= f.number_field :start_seat, class: 'form-control' %>
-
-        <%= f.label :end_seat %><br>
-        <%= f.number_field :end_seat, class: 'form-control' %>
-
-        <%= f.label :show %><br>
+        <%= f.label :show_id %>
         <%= f.select :show_id, options_for_select(@shows.collect { |show|
-          [show.event.name.titleize, show.id] }, params[:show_id]), {}, {id: 'shows_select'} %>
+          [show.event.name.titleize, show.id] }, params[:show_id]),{title:'Show', class:'form-control'}, {id: 'shows_select'} %>
 
-        <%= f.label :price_category_id %><br>
+        <%= f.label :price %>
         <%= f.select :price_category_id, options_for_select(@price_categories.collect { |price_category|
-          [price_category.price.titleize, price_category.id] }, 0), {}, {id: 'price_categories_select'} %>
+          [price_category.price.titleize, price_category.id] }, 0), {title:'Price', class:'form-control'}, {id: 'price_categories_select'} %>
 
 
-        <%= f.submit "Submit", class: "btn btn-primary" %>
+      <button type="submit" class="btn btn-primary ">Submit</button>
+      <button type="reset" class="btn btn-primary">Reset</button>
+
+      <%= link_to "Back", allocations_path %>
 
     <% end %>
   </div>

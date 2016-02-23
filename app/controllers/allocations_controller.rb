@@ -31,6 +31,9 @@ class AllocationsController < ApplicationController
 
   # GET /allocations/1/edit
   def edit
+    @shows = Show.all
+    @price_categories = PriceCategory.where("event_id = ?", Show.first.event.id)
+    @price_category = PriceCategory.find_by(id: params[:price_category_id])
   end
 
   # POST /allocations

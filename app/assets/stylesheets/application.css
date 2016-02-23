@@ -54,9 +54,6 @@ select {
     border-radius: 4px;
 }
 
-.form-group.string.required.search_search {
-    width: 300px;
-}
 
 input#search_start {
     margin-top: 15px;

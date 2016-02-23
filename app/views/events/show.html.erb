@@ -6,5 +6,5 @@
   <a href="#" class="list-group-item list-group-item-info">Category: <%= @event.event_category.name %></a>
 </div>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Edit', edit_event_path(@event), class:'btn btn-primary' %>
+<%= link_to 'Back', events_path, class:'btn btn-primary' %>

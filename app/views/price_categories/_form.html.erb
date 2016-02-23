@@ -1,37 +1,22 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@price_category) do |f| %>
-        <% if @price_category.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@price_category.errors.count, "error") %> prohibited this price_category from being
-                saved:</h2>
+<div class="container">
+  <%= form_for(@price_category, :html => {:class => 'form-signin'}) do |f| %>
 
-              <ul>
-                <% @price_category.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-        <% end %>
+      <h2 class="form-signin-heading">Price Category</h2>
 
+      <%= f.select :event_id, options_from_collection_for_select(@events, 'id', 'name', :selected => f.object.event_id), placeholder: 'Event', class: 'form-control' %>
 
-        <%= f.label :event_id %>
-        <%= f.select :event_id, options_from_collection_for_select(@events, 'id', 'name', :selected => f.object.event_id), class: 'form-control' %>
+      <%= f.select :venue_layout_id, options_from_collection_for_select(@venue_layouts, 'id', 'name', :selected => f.object.venue_layout_id), placeholder: 'Venue Layout', class: 'form-control' %>
 
-        <%= f.label :venue_layout_id %>
-        <%= f.select :venue_layout_id, options_from_collection_for_select(@venue_layouts, 'id', 'name', :selected => f.object.venue_layout_id), class: 'form-control' %>
+      <%= f.select :section_id, options_from_collection_for_select(@sections, 'id', 'name', :selected => f.object.section_id), placeholder: 'Section', class: 'form-control' %>
 
-        <%= f.label :section_id %>
-        <%= f.select :section_id, options_from_collection_for_select(@sections, 'id', 'name', :selected => f.object.section_id), class: 'form-control' %>
+      <%= f.select :ticket_category_id, options_from_collection_for_select(@ticket_categories, 'id', 'name', :selected => f.object.ticket_category_id), placeholder: 'Ticket Category', class: 'form-control' %>
 
-        <%= f.label :ticket_category_id %>
-        <%= f.select :ticket_category_id, options_from_collection_for_select(@ticket_categories, 'id', 'name', :selected => f.object.ticket_category_id), class: 'form-control' %>
+      <%= f.text_field :price, class: 'form-control', placeholder: 'Price', :reqired => true %>
 
-        <%= f.label :price %>
-        <%= f.text_field :price, class: 'form-control'%>
+      <button type="submit" class="btn btn-primary ">Submit</button>
+      <button type="reset" class="btn btn-primary">Reset</button>
 
+      <%= link_to "Back", price_categories_path %>
+  <% end %>
 
-        <%= f.submit "Submit", class: "btn btn-primary" %>
-    <% end %>
-  </div>
 </div>

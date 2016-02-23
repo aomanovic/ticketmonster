@@ -1,28 +1,18 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@venue) do |f| %>
-        <% if @venue.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@venue.errors.count, "error") %> prohibited this venue from being saved:</h2>
+<div class="container">
+  <%= form_for(@venue, :html => {:class => 'form-signin'}) do |f| %>
+      <h2 class="form-signin-heading">Venue</h2>
 
-              <ul>
-                <% @venue.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-        <% end %>
+      <%= f.text_field :name, class: 'form-control',placeholder: 'Name', :required => true, :autofocus => true  %>
 
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_area :address, class: 'form-control',placeholder: 'Address' %>
 
-        <%= f.label :address %>
-        <%= f.text_area :address, class: 'form-control' %>
+      <%= f.text_area :description, class: 'form-control',placeholder: 'Description' %>
 
-        <%= f.label :description %>
-        <%= f.text_area :description, class: 'form-control' %>
+      <button type="submit" class="btn btn-primary ">Submit</button>
+      <button type="reset" class="btn btn-primary">Reset</button>
 
-        <%= f.submit "Submit", class: "btn btn-primary" %>
+      <%= link_to "Back", venues_path %>
+
     <% end %>
-  </div>
+
 </div>

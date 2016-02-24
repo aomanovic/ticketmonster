@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Event Categories</h1>
+<h3 class="center">Listing Event Categories</h3>
 
 <div class="table-responsive">
-  <table class="table table-bordered">
+  <table class="table table-bordered table-hover">
     <thead class="bg-info">
     <tr>
       <th class="col-sm-3">Name</th>
@@ -20,9 +18,9 @@
           <td class="col-sm-3"><%= event_category.name %></td>
           <td class="col-sm-3"><%= event_category.description %></td>
           <% if administrator? %>
-              <td class="col-sm-1"><%= link_to 'Show', event_category %></td>
-              <td class="col-sm-1"><%= link_to 'Edit', edit_event_category_path(event_category) %></td>
-              <td class="col-sm-1"><%= link_to 'Destroy', event_category, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+              <td class="col-sm-1"><%= link_to 'Show', event_category, class:'btn btn-primary' %></td>
+              <td class="col-sm-1"><%= link_to 'Edit', edit_event_category_path(event_category), class:'btn btn-primary' %></td>
+              <td class="col-sm-1"><%= link_to 'Delete', event_category, method: :delete, data: {confirm: 'Are you sure?'}, class:'btn btn-primary' %></td>
           <% end %>
         </tr>
     <% end %>

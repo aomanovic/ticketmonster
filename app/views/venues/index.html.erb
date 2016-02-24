@@ -1,7 +1,7 @@
-<h1>Listing Venues</h1>
+<h3 class="center">Listing Venues</h3>
 
 <div class="table-responsive">
-  <table class="table table-bordered">
+  <table class="table table-bordered table-hover">
     <thead class="bg-info">
     <tr>
       <th class="col-sm-3">Name</th>
@@ -20,9 +20,9 @@
           <td class="col-sm-3"><%= venue.address %></td>
           <td class="col-sm-3"><%= venue.description %></td>
           <% if administrator? %>
-              <td class="col-sm-1"><%= link_to 'Show', venue %></td>
-              <td class="col-sm-1"><%= link_to 'Edit', edit_venue_path(venue) %></td>
-              <td class="col-sm-1"><%= link_to 'Destroy', venue, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+              <td class="col-sm-1"><%= link_to 'Show', venue, class:'btn btn-primary' %></td>
+              <td class="col-sm-1"><%= link_to 'Edit', edit_venue_path(venue), class:'btn btn-primary' %></td>
+              <td class="col-sm-1"><%= link_to 'Delete', venue, method: :delete, data: {confirm: 'Are you sure?'}, class:'btn btn-primary' %></td>
           <% end %>
         </tr>
     <% end %>

@@ -1,7 +1,7 @@
-<h1>Listing Sections</h1>
+<h3 class="center">Listing Sections</h3>
 
 <div class="table-responsive">
-  <table class="table table-bordered">
+  <table class="table table-bordered table-hover">
     <thead class="bg-info">
     <tr>
       <th class="col-sm-3">Name</th>
@@ -22,9 +22,9 @@
           <td class="col-sm-3"><%= section.capacity %></td>
           <td class="col-sm-3"><%= section.venue_layout.name %></td>
           <% if administrator? %>
-              <td class="col-sm-1"><%= link_to 'Show', section %></td>
-              <td class="col-sm-1"><%= link_to 'Edit', edit_section_path(section) %></td>
-              <td class="col-sm-1"><%= link_to 'Destroy', section, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+              <td class="col-sm-1"><%= link_to 'Show', section, class:'btn btn-primary' %></td>
+              <td class="col-sm-1"><%= link_to 'Edit', edit_section_path(section), class:'btn btn-primary' %></td>
+              <td class="col-sm-1"><%= link_to 'Delete', section, method: :delete, data: {confirm: 'Are you sure?'}, class:'btn btn-primary' %></td>
           <% end %>
         </tr>
     <% end %>

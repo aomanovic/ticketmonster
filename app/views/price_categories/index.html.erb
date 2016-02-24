@@ -1,7 +1,7 @@
-<h1>Listing Price Categories</h1>
+<h3 class="center">Listing Price Categories</h3>
 
 <div class="table-responsive">
-  <table class="table table-bordered">
+  <table class="table table-bordered table-hover">
     <thead class="bg-info">
     <tr>
       <th class="col-sm-3">Event</th>
@@ -24,9 +24,9 @@
           <td class="col-sm-3"><%= price_category.ticket_category.name %></td>
           <td class="col-sm-3"><%= price_category.price %></td>
           <% if administrator? %>
-              <td class="col-sm-1"><%= link_to 'Show', price_category %></td>
-              <td class="col-sm-1"><%= link_to 'Edit', edit_price_category_path(price_category) %></td>
-              <td class="col-sm-1"><%= link_to 'Destroy', price_category, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+              <td class="col-sm-1"><%= link_to 'Show', price_category, class:'btn btn-primary' %></td>
+              <td class="col-sm-1"><%= link_to 'Edit', edit_price_category_path(price_category), class:'btn btn-primary' %></td>
+              <td class="col-sm-1"><%= link_to 'Delete', price_category, method: :delete, data: {confirm: 'Are you sure?'}, class:'btn btn-primary' %></td>
           <% end %>
         </tr>
     <% end %>

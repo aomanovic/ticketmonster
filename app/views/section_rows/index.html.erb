@@ -1,7 +1,7 @@
-<h1>Listing Section Rows</h1>
+<h3 class="center">Listing Section Rows</h3>
 
 <div class="table-responsive">
-  <table class="table table-bordered">
+  <table class="table table-bordered table-hover">
     <thead class="bg-info">
     <tr>
       <th class="col-sm-3">Name</th>
@@ -20,9 +20,9 @@
           <td class="col-sm-3"><%= section_row.capacity %></td>
           <td class="col-sm-3"><%= section_row.section.name %></td>
           <% if administrator? %>
-              <td class="col-sm-1"><%= link_to 'Show', section_row %></td>
-              <td class="col-sm-1"><%= link_to 'Edit', edit_section_row_path(section_row) %></td>
-              <td class="col-sm-1"><%= link_to 'Destroy', section_row, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+              <td class="col-sm-1"><%= link_to 'Show', section_row, class:'btn btn-primary' %></td>
+              <td class="col-sm-1"><%= link_to 'Edit', edit_section_row_path(section_row), class:'btn btn-primary' %></td>
+              <td class="col-sm-1"><%= link_to 'Delete', section_row, method: :delete, data: {confirm: 'Are you sure?'}, class:'btn btn-primary' %></td>
           <% end %>
         </tr>
     <% end %>

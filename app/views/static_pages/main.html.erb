@@ -11,9 +11,7 @@
       </h1>
 
       <!-- First Blog Post -->
-      <h2>
-        <a href="#">Bon Jovi World Tour</a>
-      </h2>
+      <h2>Bon Jovi World Tour</h2>
       <!--<p class="lead">-->
       <!--by <a href="index.php">Start Bootstrap</a>-->
       <!--</p>-->
@@ -31,17 +29,15 @@
       </p>
 
 
-      <div class="btn btn-primary">
-        <%= link_to "Book tickets!", new_allocation_path(:show_id => 4) %>
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      </div>
+        <%= link_to "Purchase tickets", new_allocation_path(:show_id => 4), class:'btn btn-primary' %>
+
 
       <hr>
 
 
       <!-- Second Blog Post -->
       <h2>
-        <a href="#">Valentine’s Day 2016: A bandstand music series</a>
+        Women's Day 2016: A bandstand music series
       </h2>
       <!--<p class="lead">-->
       <!--by <a href="index.php">Start Bootstrap</a>-->
@@ -51,7 +47,7 @@
       <%= image_tag 'druga.jpg', class: 'img-responsive' %>
       <hr>
       <p>
-        What better way to celebrate Valentine’s Day than with good music, greenery and a moonlit sky? The Bandstand at
+        What better way to celebrate Women’s Day than with good music, greenery and a moonlit sky? The Bandstand at
         the Skenderija will host a series of fantastic live acts, so grab your sweetheart for an unforgettable nights of
         soul-soothing indie pop.
         <br>
@@ -61,16 +57,14 @@
 
       </p>
 
-      <div class="btn btn-primary">
-        <%= link_to "Book tickets!", new_allocation_path(:show_id => 5) %>
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      </div>
+
+        <%= link_to "Purchase tickets", new_allocation_path(:show_id => 5), class:'btn btn-primary' %>
 
       <hr>
 
       <!-- Third Blog Post -->
       <h2>
-        <a href="#">EXIT Festival, Petrovaradin Fortress, Novi Sad!</a>
+        EXIT Festival, Petrovaradin Fortress, Novi Sad!
       </h2>
       <!--<p class="lead">-->
       <!--by <a href="index.php">Start Bootstrap</a>-->
@@ -89,10 +83,8 @@
 
       </p>
 
-      <div class="btn btn-primary">
-        <%= link_to "Book tickets!", new_allocation_path(:show_id => 6) %>
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      </div>
+        <%= link_to "Purchase tickets", new_allocation_path(:show_id => 6), class:'btn btn-primary' %>
+
 
       <hr>
 
@@ -117,10 +109,10 @@
         <div class="input-group">
           <%= simple_form_for :search, {url: shows_path, method: :get} do |f| %>
               <%= f.input :search, placeholder: "Event Name", label: false, id: 'eventSearch', class: 'form-control'%>
-              <label for="start" class="sr-only">Birth Date</label>
+              <label for="start" class="sr-only">Start Date</label>
               <input type="text" class="datetimepicker_from form-control" id="start" placeholder="From Date" name="start">
 
-              <label for="end" class="sr-only">Birth Date</label>
+              <label for="end" class="sr-only">End Date</label>
               <input type="text" class="datetimepicker_from form-control" id="end" placeholder="To Date" name="end">
               <%= f.button :submit, "Search" %>
           <% end %>

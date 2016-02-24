@@ -69,3 +69,16 @@ input#search_end {
 a:visited {
     color: white;
 }
+
+.table-bordered .table-responsive {
+    border: 1px solid #337ab7;
+}
+
+.table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > tfoot > tr > td {
+    border: 1px solid #337ab7;
+}
+
+.bg-info {
+    background-color: #337ab7;
+    color: white;
+}

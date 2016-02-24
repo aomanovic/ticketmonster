@@ -1,7 +1,7 @@
-<h1>Listing Ticket Categories</h1>
+<h3 class="center">Listing Ticket Categories</h3>
 
 <div class="table-responsive">
-  <table class="table table-bordered">
+  <table class="table table-bordered table-hover">
     <thead class="bg-info">
     <tr>
       <th class="col-sm-3">Name</th>
@@ -18,9 +18,9 @@
           <td class="col-sm-3"><%= ticket_category.name %></td>
           <td class="col-sm-3"><%= ticket_category.description %></td>
           <% if administrator? %>
-              <td class="col-sm-1"><%= link_to 'Show', ticket_category %></td>
-              <td class="col-sm-1"><%= link_to 'Edit', edit_ticket_category_path(ticket_category) %></td>
-              <td class="col-sm-1"><%= link_to 'Destroy', ticket_category, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+              <td class="col-sm-1"><%= link_to 'Show', ticket_category, class:'btn btn-primary' %></td>
+              <td class="col-sm-1"><%= link_to 'Edit', edit_ticket_category_path(ticket_category),class:'btn btn-primary' %></td>
+              <td class="col-sm-1"><%= link_to 'Delete', ticket_category, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-primary' %></td>
           <% end %>
         </tr>
     <% end %>

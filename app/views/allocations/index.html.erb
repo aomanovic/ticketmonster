@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Allocations</h1>
+<h3 class="center">Listing Allocations</h3>
 
 <div class="table-responsive">
-  <table class="table table-bordered">
+  <table class="table table-bordered table-hover">
     <thead class="bg-info">
     <tr>
       <th class="col-sm-3">Assigned</th>
@@ -30,15 +28,12 @@
         <td class="col-sm-3"><%= allocation.start_seat %></td>
         <td class="col-sm-3"><%= allocation.end_seat %></td>
         <% if administrator? %>
-            <td class="col-sm-1"><%= link_to 'Show', allocation %></td>
-            <td class="col-sm-1"><%= link_to 'Edit', edit_allocation_path(allocation) %></td>
-            <td class="col-sm-1"><%= link_to 'Destroy', allocation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td class="col-sm-1"><%= link_to 'Show', allocation, class:'btn btn-primary' %></td>
+            <td class="col-sm-1"><%= link_to 'Edit', edit_allocation_path(allocation), class:'btn btn-primary' %></td>
+            <td class="col-sm-1"><%= link_to 'Delete', allocation, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-primary' %></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Allocation', new_allocation_path %>
+</div>

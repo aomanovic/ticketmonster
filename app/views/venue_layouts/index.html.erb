@@ -1,7 +1,7 @@
-<h1>Listing Venue Layouts</h1>
+<h3 class="center">Listing Venue Layouts</h3>
 
 <div class="table-responsive">
-  <table class="table table-bordered">
+  <table class="table table-bordered table-hover">
     <thead class="bg-info">
     <tr>
       <th class="col-sm-3">Venue</th>
@@ -20,9 +20,9 @@
           <td class="col-sm-3"><%= venue_layout.name %></td>
           <td class="col-sm-3"><%= venue_layout.capacity %></td>
           <% if administrator? %>
-              <td class="col-sm-1"><%= link_to 'Show', venue_layout %></td>
-              <td class="col-sm-1"><%= link_to 'Edit', edit_venue_layout_path(venue_layout) %></td>
-              <td class="col-sm-1"><%= link_to 'Destroy', venue_layout, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+              <td class="col-sm-1"><%= link_to 'Show', venue_layout, class:'btn btn-primary' %></td>
+              <td class="col-sm-1"><%= link_to 'Edit', edit_venue_layout_path(venue_layout), class:'btn btn-primary' %></td>
+              <td class="col-sm-1"><%= link_to 'Delete', venue_layout, method: :delete, data: {confirm: 'Are you sure?'}, class:'btn btn-primary' %></td>
           <% end %>
         </tr>
     <% end %>

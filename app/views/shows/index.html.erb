@@ -1,6 +1,6 @@
-<h1>Listing Shows</h1>
+<h3 class="center">Listing Shows</h3>
 <div class="table-responsive">
-  <table class="table table-bordered">
+  <table class="table table-bordered table-hover">
     <thead class="bg-info">
     <tr>
       <th class="col-sm-3">Event</th>
@@ -21,11 +21,11 @@
           <td class="col-sm-3"><%= show.venue.name %></td>
           <td class="col-sm-3"><%= show.showtime %></td>
           <td class="col-sm-3"><%= show.venue_layout.name %></td>
-          <% if !administrator? %><td class="col-sm-3"><%= link_to 'Book', new_allocation_path %></td><% end %>
+          <% if !administrator? %><td class="col-sm-3"><%= link_to 'Book', new_allocation_path, class:'btn btn-primary' %></td><% end %>
           <% if administrator? %>
-              <td class="col-sm-1"><%= link_to 'Show', show %></td>
-              <td class="col-sm-1"><%= link_to 'Edit', edit_show_path(show) %></td>
-              <td class="col-sm-1"><%= link_to 'Destroy', show, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+              <td class="col-sm-1"><%= link_to 'Show', show, class:'btn btn-primary' %></td>
+              <td class="col-sm-1"><%= link_to 'Edit', edit_show_path(show), class:'btn btn-primary' %></td>
+              <td class="col-sm-1"><%= link_to 'Delete', show, method: :delete, data: {confirm: 'Are you sure?'}, class:'btn btn-primary' %></td>
           <% end %>
         </tr>
     <% end %>

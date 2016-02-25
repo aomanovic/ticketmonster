@@ -11,7 +11,7 @@ class ShowsController < ApplicationController
     else
       @shows ||= Show.all
     end
-    @shows = @shows.where('showtime between ? and ?', Date.strptime(params[:search][:start], "%d/%m/%Y"), Date.strptime(params[:search][:end], "%d/%m/%Y")) if params[:search][:start] and params[:search][:end]
+    @shows = @shows.where('showtime between ? and ?', Date.strptime(params[:start], "%Y-%m-%d"), Date.strptime(params[:end], "%Y-%m-%d")) if params[:start] and params[:end]
 
   end
 
